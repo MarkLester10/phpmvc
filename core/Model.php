@@ -2,56 +2,84 @@
 
 namespace app\core;
 
+// abstract methods tablename,rules,attributes, labels
+
 abstract class Model
 {
     public const RULE_REQUIRED = 'required';
     public const RULE_EMAIL = 'email';
     public const RULE_MIN = 'min';
-    public const RULE_MAX= 'max';
-    public const RULE_MATCH= 'match';
+    public const RULE_MAX = 'max';
+    public const RULE_MATCH = 'match';
+    public const RULE_UNIQUE = 'unique';
 
     public function loadData($data)
     {
-        foreach($data as $key => $value){
-            if(property_exists($this, $key)){
+        foreach ($data as $key => $value) {
+            if (property_exists($this, $key)) {
                 $this->{$key} = $value;
             }
         }
     }
 
-    abstract public function rules();
+    abstract public function rules(): array;
+
+    public function labels(): array
+    {
+        return [];
+    }
+
+    public function getLabel($attribute)
+    {
+        return $this->labels()[$attribute] ?? $attribute;
+    }
 
     public array $errors = [];
 
     public function validate()
     {
-        foreach($this->rules() as $attribute => $rules){
+        foreach ($this->rules() as $attribute => $rules) {
             $value = $this->{$attribute};
-            foreach($rules as $rule){
+            foreach ($rules as $rule) {
                 $ruleName = $rule;
 
-                if(!is_string($ruleName)){
+                if (!is_string($ruleName)) {
                     $ruleName = $rule[0]; //first element in array as rule name
                 }
 
-                if($ruleName === self::RULE_REQUIRED && !$value){
+                if ($ruleName === self::RULE_REQUIRED && !$value) {
                     $this->addError($attribute, self::RULE_REQUIRED);
                 }
 
-                if($ruleName === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)){
+                if ($ruleName === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
                     $this->addError($attribute, self::RULE_EMAIL);
                 }
 
-                if($ruleName === self::RULE_MIN && strlen($value) < $rule['min']){
+                if ($ruleName === self::RULE_MIN && strlen($value) < $rule['min']) {
                     $this->addError($attribute, self::RULE_MIN, $rule);
                 }
 
-                if($ruleName === self::RULE_MAX && strlen($value) > $rule['max']){
+                if ($ruleName === self::RULE_MAX && strlen($value) > $rule['max']) {
                     $this->addError($attribute, self::RULE_MAX, $rule);
                 }
 
-                if($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}){
+                if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) {
+                    $rule['match'] = $this->getLabel($rule['match']);
                     $this->addError($attribute, self::RULE_MATCH, $rule);
+                }
+
+                if ($ruleName === self::RULE_UNIQUE) {
+                    $className = $rule['class'];
+                    $uniqueAttribute = $rule['attribute'] ?? $attribute;
+                    $tablename = $className::tablename();
+                    $statement = Application::$app->db->prepare("SELECT * from $tablename WHERE $uniqueAttribute = :attr");
+                    $statement->bindValue(":attr", $value);
+                    $statement->execute();
+                    $record = $statement->fetchObject();
+
+                    if ($record) {
+                        $this->addError($attribute, self::RULE_UNIQUE, ['field' => $this->getLabel($attribute)]);
+                    }
                 }
             }
         }
@@ -78,8 +106,9 @@ abstract class Model
             self::RULE_REQUIRED => 'This field is required',
             self::RULE_EMAIL => 'This field must be a valid email address',
             self::RULE_MIN => 'Minimum length of this field must be {min}',
-            self::RULE_MAX=> 'Maximun length of this field must be {max}',
-            self::RULE_MATCH=> 'Make sure to match this field with your {match}',
+            self::RULE_MAX => 'Maximun length of this field must be {max}',
+            self::RULE_MATCH => 'Make sure to match this field with your {match}',
+            self::RULE_UNIQUE => 'This {field} already exists',
         ];
     }
 

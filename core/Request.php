@@ -2,23 +2,22 @@
 
 namespace app\core;
 
-class Request 
+class Request
 {
 
     public function getPath()
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
-        
+
         //check if ? is presented in uri
-        $position = strpos($path,'?');
-        
-        if($position === false){
+        $position = strpos($path, '?');
+
+        if ($position === false) {
             return $path;
-        }else{
+        } else {
             //actual path
-           return substr($path, 0, $position);
+            return substr($path, 0, $position);
         }
-       
     }
 
     public function method()
@@ -37,20 +36,19 @@ class Request
     }
 
 
-
     public function getBody()
     {
-        $body =[];
-        
-        if($this->method() === 'get'){
-            foreach($_GET as $key => $value){
+        $body = [];
+
+        if ($this->method() === 'get') {
+            foreach ($_GET as $key => $value) {
                 //Remove invalid characters in all inputs in super global $_GET
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
 
-        if($this->method() === 'post'){
-            foreach($_POST as $key => $value){
+        if ($this->method() === 'post') {
+            foreach ($_POST as $key => $value) {
                 //Remove invalid characters in all inputs in super global $_POST
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
@@ -58,5 +56,4 @@ class Request
 
         return $body;
     }
-
 }

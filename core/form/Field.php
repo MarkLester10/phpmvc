@@ -13,9 +13,9 @@ class Field
 
     public function __construct(Model $model, $attribute, $type)
     {
-        $this->type = $type;
         $this->model = $model;
         $this->attribute = $attribute;
+        $this->type = $type;
     }
 
     //magic method - what ever is return from this it will be printed
@@ -29,7 +29,7 @@ class Field
             <div class="invalid-feedback">%s</div>
         </div>
         ',
-            ucfirst($this->attribute),
+            $this->model->getLabel($this->attribute),
             $this->type,
             $this->attribute,
             $this->model->{$this->attribute},

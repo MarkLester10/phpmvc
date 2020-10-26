@@ -2,40 +2,40 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use app\core\Request;
 use app\core\Controller;
-use app\models\RegisterModel;
+use app\core\Application;
 
 class AuthController extends Controller
 {
     public function login()
     {
         $this->setLayout('auth');
-        
+
         //returns only the view if HTTP method is get
         return $this->render('login');
     }
 
     public function register(Request $request)
-    {   
+    {
         $this->setLayout('auth');
-        $registerModel = new RegisterModel();
+        $user = new User();
 
-        if($request->isPost()){
+        if ($request->isPost()) {
 
             //loads data from super global POST to Model attributes
-            $registerModel->loadData($request->getBody());
+            $user->loadData($request->getBody());
 
-
-            if($registerModel->validate() && $registerModel->register()){
-                return 'Success';
+            if ($user->validate() && $user->save()) {
+                Application::$app->session->setFlashMessage('success', 'Thanks For Registering');
+                Application::$app->response->redirect('/');
+                exit;
             }
-
-            return $this->render('register', ['model' => $registerModel]);
+            return $this->render('register', ['model' => $user]);
         }
 
         //returns only the view if HTTP method is get
-        return $this->render('register', ['model' => $registerModel]);
-        
+        return $this->render('register', ['model' => $user]);
     }
 }

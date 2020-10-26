@@ -1,9 +1,10 @@
 <?php
+
 namespace app\core;
 
 //since application and router are in the same namespace, declaring namespace app\core is not needed
 
-class Application 
+class Application
 {
 
   //PHP 7.4 typed properties
@@ -11,10 +12,12 @@ class Application
   public Router $router;
   public Request $request;
   public Response $response;
+  public Session $session;
   public Controller $controller;
   public static Application $app;
+  public Database $db;
 
-  public function __construct($rootPath)
+  public function __construct($rootPath, array $config)
   {
     //singleton
     self::$ROOT_DIR = $rootPath;
@@ -25,8 +28,11 @@ class Application
 
     $this->response = new Response();
 
+    $this->session = new Session();
+
     $this->router = new Router($this->request, $this->response);
-    
+
+    $this->db = new Database($config['db']);
   }
 
   public function run()
@@ -45,11 +51,12 @@ class Application
 
 
   //For Debugging purpose only will delete later
-  public function debug($data){
+  public static function pd($params = [])
+  {
     echo '<pre>';
-      var_dump($data);
+    foreach ($params as $param) {
+      var_dump($param);
+    }
     echo '</pre>';
-    exit;
   }
-
 }
