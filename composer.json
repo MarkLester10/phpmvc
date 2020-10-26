@@ -1,0 +1,15 @@
+{
+    "name": "pyong/phpmvc",
+    "authors": [
+        {
+            "name": "Mark Lester Morta",
+            "email": "marklester10.mlsm@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
