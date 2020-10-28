@@ -9,16 +9,23 @@ class Application
 
   //PHP 7.4 typed properties
   public static string $ROOT_DIR;
+
+  public string $layout = 'main';
+  public string $userClass;
   public Router $router;
   public Request $request;
   public Response $response;
   public Session $session;
-  public Controller $controller;
+  public ?Controller $controller = null;
   public static Application $app;
   public Database $db;
+  public ?DBModel $user; //optional it might be null
 
   public function __construct($rootPath, array $config)
   {
+
+    $this->userClass = $config['userClass'];
+
     //singleton
     self::$ROOT_DIR = $rootPath;
 
@@ -33,6 +40,14 @@ class Application
     $this->router = new Router($this->request, $this->response);
 
     $this->db = new Database($config['db']);
+
+    $primaryValue = $this->session->get('user');
+    if ($primaryValue) {
+      $primaryKey = $this->userClass::primaryKey();
+      $this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
+    } else {
+      $this->user = null;
+    }
   }
 
   public function run()
@@ -50,13 +65,23 @@ class Application
   }
 
 
-  //For Debugging purpose only will delete later
-  public static function pd($params = [])
+  public function login(DBModel $user)
   {
-    echo '<pre>';
-    foreach ($params as $param) {
-      var_dump($param);
-    }
-    echo '</pre>';
+    $this->user = $user;
+    $primaryKey = $user->primaryKey();
+    $primaryValue = $user->{$primaryKey};
+    $this->session->set('user', $primaryValue);
+    return true;
+  }
+
+  public function isGuest()
+  {
+    return !self::$app->user;
+  }
+
+  public function logout()
+  {
+    $this->user = null;
+    $this->session->remove('user');
   }
 }

@@ -2,9 +2,10 @@
 
 namespace app\models;
 
-use app\core\DBModel;
+use app\core\UserModel;
+use app\core\Application;
 
-class User extends DBModel
+class User extends UserModel
 {
     const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 1;
@@ -20,6 +21,17 @@ class User extends DBModel
     public function tableName(): string
     {
         return 'users';
+    }
+
+    //attributes for DB model - simply your table columns
+    public function attributes(): array
+    {
+        return ['firstname', 'lastname', 'email', 'password', 'status'];
+    }
+
+    public function primaryKey(): string
+    {
+        return 'id';
     }
 
     public function save()
@@ -41,13 +53,7 @@ class User extends DBModel
     }
 
 
-    //attributes for DB model - simply your table columns
-    public function attributes(): array
-    {
-        return ['firstname', 'lastname', 'email', 'password', 'status'];
-    }
-
-    //These are the labels of your form based on their html name attributes
+    //These are the labels of your form - based on their html name attributes
     public function labels(): array
     {
         return [
@@ -57,5 +63,16 @@ class User extends DBModel
             'password' => 'Password',
             'confirmPassword' => 'Confirm Password'
         ];
+    }
+
+    public function getDisplayName(): string
+    {
+        return ucfirst($this->firstname) . ' ' . ucfirst($this->lastname);
+    }
+
+    public function login()
+    {
+        $user = self::findOne(['email' => $this->email]);
+        return Application::$app->login($user);
     }
 }

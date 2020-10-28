@@ -1,3 +1,13 @@
+<?php
+
+/** 
+ * basically tells in which Model belongs the variable $model
+ * 
+ * @var $model \app\model\User 
+ * */
+
+?>
+
 <div class="row">
     <div class="col-lg-6 col-md-12 mx-auto">
         <h1>Create an Account</h1>
