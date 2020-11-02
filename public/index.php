@@ -26,8 +26,8 @@ $app = new Application(dirname(__DIR__), $config);
 $app->router->get("/", [HomeController::class, 'index']);
 
 //contact router
-$app->router->get("/contact", [ContactController::class, 'show']);
-$app->router->post("/contact", [ContactController::class, 'handleContact']);
+$app->router->get("/contact", [ContactController::class, 'contact']);
+$app->router->post("/contact", [ContactController::class, 'contact']);
 
 //Auth router
 $app->router->get("/login", [AuthController::class, 'login']);
