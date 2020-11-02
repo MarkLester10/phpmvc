@@ -4,7 +4,10 @@
  * basically tells in which Model belongs the variable $model
  * 
  * @var $model \app\model\User 
+ * @var $this \app\core\View
+ * 
  * */
+$this->title = 'Login';
 
 ?>
 
@@ -20,7 +23,7 @@
 
             <button type="submit" class="btn btn-primary">Login</button>
 
-            <?php echo app\core\form\Form::end() ?>
+            <?php app\core\form\Form::end() ?>
         </div>
     </div>
 </div>

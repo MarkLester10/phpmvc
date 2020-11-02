@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+// abstract methods attributes, tablename, primaryKey
+
 abstract class DBModel extends Model
 {
     abstract public function tableName(): string;

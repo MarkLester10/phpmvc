@@ -2,6 +2,7 @@
 
 use app\core\Application;
 
+$this->title = 'Home';
 ?>
 <h1>Home</h1>
 <?php if (Application::$app->user) : ?>

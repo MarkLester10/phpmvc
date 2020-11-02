@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-// abstract methods tablename,rules,attributes, labels
+// abstract methods rules, labels
 
 abstract class Model
 {
