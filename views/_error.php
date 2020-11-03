@@ -1,7 +1,7 @@
 <?php
 
 /** @var $exception \Exception 
- * @var $this \app\core\View
+ * @var $this \marklester\phpmvc\View
  */
 $this->title = $exception->getCode();
 $this->subheading = $exception->getMessage();

@@ -1,8 +1,8 @@
 <?php
 
-/** @var $this \app\core\View */
+/** @var $this \marklester\phpmvc\View */
 
-use app\core\Application;
+use marklester\phpmvc\Application;
 
 $this->title = 'Profile';
 $this->subheading = 'Regularly update your information';

@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use app\core\UserModel;
-use app\core\Application;
+use marklester\phpmvc\UserModel;
+use marklester\phpmvc\Application;
 
 class User extends UserModel
 {

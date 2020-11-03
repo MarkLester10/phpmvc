@@ -2,12 +2,12 @@
 
 namespace app\controllers;
 
-use app\core\Request;
-use app\core\Response;
-use app\core\Controller;
-use app\core\Application;
+use marklester\phpmvc\Request;
+use marklester\phpmvc\Response;
+use marklester\phpmvc\Controller;
+use marklester\phpmvc\Application;
 use app\models\ContactForm;
-use app\core\middlewares\AuthMiddleware;
+use marklester\phpmvc\middlewares\AuthMiddleware;
 
 class ContactController extends Controller
 {

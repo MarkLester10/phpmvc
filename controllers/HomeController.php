@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\core\Controller;
+use marklester\phpmvc\Controller;
 
 class HomeController extends Controller
 {

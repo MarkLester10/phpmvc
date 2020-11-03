@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f947edbc8f3fbd09e7540bc85c93967d",
+    "content-hash": "3d3005b92ed64037e9547035ab53df5e",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -71,6 +71,39 @@
                 }
             ],
             "time": "2020-04-13T13:17:36+00:00"
+        },
+        {
+            "name": "marklester/php-mvc-core",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarkLester10/php-mvc-core.git",
+                "reference": "570c477f45c70765dc0bed0c0db72fad18fd140c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarkLester10/php-mvc-core/zipball/570c477f45c70765dc0bed0c0db72fad18fd140c",
+                "reference": "570c477f45c70765dc0bed0c0db72fad18fd140c",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "marklester\\phpmvc\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mark Lester Morta",
+                    "email": "marklester10.mlsm@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/MarkLester10/php-mvc-core/issues",
+                "source": "https://github.com/MarkLester10/php-mvc-core/tree/v1.0.1"
+            },
+            "time": "2020-11-03T08:52:22+00:00"
         },
         {
             "name": "phpoption/phpoption",

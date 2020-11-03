@@ -1,9 +1,9 @@
 <?php
 
-use app\core\Application;
+use marklester\phpmvc\Application;
 
 /**
- * @var $this \app\core\View
+ * @var $this \marklester\phpmvc\View
  */
 
 $this->title = 'Home';

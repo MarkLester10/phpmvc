@@ -1,7 +1,7 @@
 <?php
 
 use Dotenv\Dotenv;
-use app\core\Application;
+use marklester\phpmvc\Application;
 use app\controllers\AuthController;
 use app\controllers\HomeController;
 use app\controllers\ContactController;

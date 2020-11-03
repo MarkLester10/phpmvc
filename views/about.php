@@ -1,6 +1,6 @@
 <?php
 
-/** @var $this \app\core\View */
+/** @var $this \marklester\phpmvc\View */
 
 $this->title = 'About';
 $this->subheading = 'Know more about me';

@@ -4,7 +4,7 @@
  * basically tells in which Model belongs the variable $model
  * 
  * @var $model \app\model\User 
- * @var $this \app\core\View
+ * @var $this \marklester\phpmvc\View
  * 
  * */
 $this->title = 'Login';
@@ -16,14 +16,14 @@ $this->headerBg = '../assets/img/login.jpg';
 <div class="container mt-3 mx-auto">
     <div class="row">
         <div class="col-lg-6 col-md-12 mx-auto">
-            <?php $form = marklester\php - mvc - core\form\Form::begin('', "post") ?>
+            <?php $form = marklester\phpmvc\form\Form::begin('', "post") ?>
 
             <?php echo $form->field($model, 'email', 'text') ?>
             <?php echo $form->field($model, 'password', 'password') ?>
 
             <button type="submit" class="btn btn-primary">Login</button>
 
-            <?php marklester\php - mvc - core\form\Form::end() ?>
+            <?php marklester\phpmvc\form\Form::end() ?>
         </div>
     </div>
 </div>

@@ -1,14 +1,14 @@
 <?php
 
-/** @var $this \app\core\View 
+/** @var $this \marklester\phpmvc\View 
  * @var $model \app\model\ContactForm
  */
 $this->title = 'Contact';
 $this->subheading = 'Send us your concerns';
 $this->headerBg = '../assets/img/contact-bg.jpg';
 
-use app\core\form\Form;
-use app\core\form\TextareaField;
+use marklester\phpmvc\form\Form;
+use marklester\phpmvc\form\TextareaField;
 ?>
 
 

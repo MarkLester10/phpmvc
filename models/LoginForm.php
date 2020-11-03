@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use app\core\Model;
-use app\core\Application;
+use marklester\phpmvc\Model;
+use marklester\phpmvc\Application;
 
 class LoginForm extends Model
 {
