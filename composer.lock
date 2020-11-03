@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea08c45aebbc6ccfa59838837da7c302",
+    "content-hash": "105e1e34bf26d245c1d4f483cb9e6d0a",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -74,19 +74,18 @@
         },
         {
             "name": "marklester/php-mvc-core",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MarkLester10/php-mvc-core.git",
-                "reference": "570c477f45c70765dc0bed0c0db72fad18fd140c"
+                "reference": "909e0050d8d42a0095f854e09988e6d3fae73d9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MarkLester10/php-mvc-core/zipball/570c477f45c70765dc0bed0c0db72fad18fd140c",
-                "reference": "570c477f45c70765dc0bed0c0db72fad18fd140c",
+                "url": "https://api.github.com/repos/MarkLester10/php-mvc-core/zipball/909e0050d8d42a0095f854e09988e6d3fae73d9f",
+                "reference": "909e0050d8d42a0095f854e09988e6d3fae73d9f",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -102,9 +101,9 @@
             ],
             "support": {
                 "issues": "https://github.com/MarkLester10/php-mvc-core/issues",
-                "source": "https://github.com/MarkLester10/php-mvc-core/tree/v1.0.1"
+                "source": "https://github.com/MarkLester10/php-mvc-core/tree/v1.0.0"
             },
-            "time": "2020-11-03T08:52:22+00:00"
+            "time": "2020-11-03T11:44:02+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -501,9 +500,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "marklester/php-mvc-core": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

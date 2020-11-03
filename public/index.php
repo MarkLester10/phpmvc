@@ -22,6 +22,10 @@ $config = [
 
 $app = new Application(dirname(__DIR__), $config);
 
+$app->on(Application::EVENT_BEFORE_REQUEST, function () {
+    echo 'Before Request';
+});
+
 //Home router
 $app->router->get("/", [HomeController::class, 'index']);
 $app->router->get("/about", [HomeController::class, 'about']);
