@@ -5,6 +5,8 @@ namespace app\core;
 class View
 {
     public string $title = '';
+    public string $subheading = '';
+    public string $headerBg = '';
     //render the view
     public function renderView($view, $params = [])
     {

@@ -8,14 +8,14 @@
  * 
  * */
 $this->title = 'Login';
+$this->subheading = 'Get the latest news and information now';
+$this->headerBg = '../assets/img/login.jpg';
 
 ?>
 
 <div class="container mt-3 mx-auto">
     <div class="row">
         <div class="col-lg-6 col-md-12 mx-auto">
-            <h1>Login</h1>
-
             <?php $form = app\core\form\Form::begin('', "post") ?>
 
             <?php echo $form->field($model, 'email', 'text') ?>

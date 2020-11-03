@@ -1,7 +1,9 @@
 <?php
 //Singleton Pattern applied here
 
-namespace app\core;
+namespace app\core\db;
+
+use app\core\Application;
 
 class Database
 {

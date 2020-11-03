@@ -9,11 +9,12 @@
  * */
 
 $this->title = 'Register';
+$this->subheading = 'Create an Account';
+$this->headerBg = '../assets/img/register.jpg';
 ?>
 
 <div class="row">
     <div class="col-lg-6 col-md-12 mx-auto">
-        <h1>Create an Account</h1>
         <?php $form = app\core\form\Form::begin('', "post") ?>
 
         <div class="row">

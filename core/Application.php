@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\core\db\Database;
+
 //since application and router are in the same namespace, declaring namespace app\core is not needed
 
 class Application
@@ -19,7 +21,7 @@ class Application
   public ?Controller $controller = null;
   public static Application $app;
   public Database $db;
-  public ?DBModel $user; //optional it might be null
+  public ?UserModel $user; //optional it might be null
   public View $view;
 
   public function __construct($rootPath, array $config)
@@ -69,7 +71,7 @@ class Application
   }
 
 
-  public function login(DBModel $user)
+  public function login(UserModel $user)
   {
     $this->user = $user;
     $primaryKey = $user->primaryKey();

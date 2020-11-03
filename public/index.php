@@ -24,6 +24,7 @@ $app = new Application(dirname(__DIR__), $config);
 
 //Home router
 $app->router->get("/", [HomeController::class, 'index']);
+$app->router->get("/about", [HomeController::class, 'about']);
 
 //contact router
 $app->router->get("/contact", [ContactController::class, 'contact']);
@@ -36,6 +37,10 @@ $app->router->get("/register", [AuthController::class, 'register']);
 $app->router->post("/register", [AuthController::class, 'register']);
 $app->router->get("/logout", [AuthController::class, 'logout']);
 $app->router->get("/profile", [AuthController::class, 'profile']);
+
+//Post routes
+
+
 
 
 $app->run();

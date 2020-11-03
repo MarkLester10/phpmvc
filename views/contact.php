@@ -4,6 +4,8 @@
  * @var $model \app\model\ContactForm
  */
 $this->title = 'Contact';
+$this->subheading = 'Send us your concerns';
+$this->headerBg = '../assets/img/contact-bg.jpg';
 
 use app\core\form\Form;
 use app\core\form\TextareaField;
