@@ -15,7 +15,7 @@ $this->headerBg = '../assets/img/register.jpg';
 
 <div class="row">
     <div class="col-lg-6 col-md-12 mx-auto">
-        <?php $form = app\core\form\Form::begin('', "post") ?>
+        <?php $form = marklester\php - mvc - core\form\Form::begin('', "post") ?>
 
         <div class="row">
             <div class="col">
@@ -31,6 +31,6 @@ $this->headerBg = '../assets/img/register.jpg';
 
         <button type="submit" class="btn btn-primary">Submit</button>
 
-        <?php echo app\core\form\Form::end() ?>
+        <?php echo marklester\php - mvc - core\form\Form::end() ?>
     </div>
 </div>
