@@ -20,3 +20,4 @@
 - Response
 - Session
 - Custom Exception Handling
+- Migrations
