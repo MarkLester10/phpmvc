@@ -1,7 +1,7 @@
 ### Clone the repo
 
-- run composer install
 - run composer update
+- run composer install
 - cp .env.example .env
 - Add your Database Credentials to .env file
 - run php migrations.php
