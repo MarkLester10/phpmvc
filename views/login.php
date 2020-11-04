@@ -15,6 +15,9 @@ $this->headerBg = '../assets/img/login.jpg';
 
 <div class="container mt-3 mx-auto">
     <div class="row">
+        <div class="col-lg-6 d-none d-lg-block">
+            <img src="../assets/img/profile.jpg" class="img-fluid w-100 h-100" alt="login image">
+        </div>
         <div class="col-lg-6 col-md-12 mx-auto">
             <?php $form = marklester\phpmvc\form\Form::begin('', "post") ?>
 

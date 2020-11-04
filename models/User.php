@@ -7,14 +7,14 @@ use marklester\phpmvc\Application;
 
 class User extends UserModel
 {
-    const STATUS_INACTIVE = 0;
-    const STATUS_ACTIVE = 1;
+    const IS_ADMIN = 1;
+    const IS_NOT_ADMIN = 0;
     const STATUS_DELETED = 2;
 
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
-    public int $status = self::STATUS_INACTIVE;
+    public int $isAdmin = self::IS_NOT_ADMIN;
     public string $password = '';
     public string $confirmPassword = '';
 
@@ -26,7 +26,7 @@ class User extends UserModel
     //attributes for DB model - simply your table columns
     public function attributes(): array
     {
-        return ['firstname', 'lastname', 'email', 'password', 'status'];
+        return ['firstname', 'lastname', 'email', 'password', 'isAdmin'];
     }
 
     public function primaryKey(): string
@@ -36,7 +36,7 @@ class User extends UserModel
 
     public function save()
     {
-        $this->status = self::STATUS_INACTIVE;
+        $this->isAdmin = self::IS_NOT_ADMIN;
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         return parent::save(); //run save method to parent Class - DBModel
     }
