@@ -8,14 +8,14 @@
 
 ### Basic Features
 
--- Routing
--- Controller
--- Model
--- Views
--- Basic Authentication
--- Pagination
--- Form Widgets
--- Request
--- Response
--- Session
--- Custom Exception Handling
+- Routing
+- Controller
+- Model
+- Views
+- Basic Authentication
+- Pagination
+- Form Widgets
+- Request
+- Response
+- Session
+- Custom Exception Handling
