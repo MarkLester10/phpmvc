@@ -82,7 +82,7 @@ $this->headerBg = '../assets/img/home-bg.jpg';
     </div>
 </div>
 
-<h1>Pagination Example</h1>
+<!-- <h1>Pagination Example</h1>
 <ul>
     <?php foreach ($data as $key => $item) : ?>
     <li>
@@ -94,4 +94,4 @@ $this->headerBg = '../assets/img/home-bg.jpg';
 <hr>
 <?php for ($i = 1; $i <= $pages; $i++) : ?>
 <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-<?php endfor; ?>
+<?php endfor; ?> -->
