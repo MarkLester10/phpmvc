@@ -15,7 +15,6 @@
 - Views
 - Basic Authentication
 - Pagination
-- Form Widgets
 - Request
 - Response
 - Session
