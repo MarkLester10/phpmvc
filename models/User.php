@@ -18,7 +18,7 @@ class User extends UserModel
     public string $password = '';
     public string $confirmPassword = '';
 
-    public function tableName(): string
+    static public function tableName(): string
     {
         return 'users';
     }
